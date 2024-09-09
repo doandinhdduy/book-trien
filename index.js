@@ -7,12 +7,12 @@ const path = require("path");
 methodOverride = require("method-override");
 
 const port = 3000;
-const db = require("./config/db/index");
+const db = require("./src/config/db/index");
 
 //Connect to DB
 db.connect();
 
-const route = require("./route/index-route");
+const route = require("./src/route/index-route");
 
 app.use(express.json());
 // static
