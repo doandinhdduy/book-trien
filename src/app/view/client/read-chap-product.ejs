@@ -1,0 +1,28 @@
+
+<p style="margin: 50px;">
+    <h3>Chap <%=chap.number_chap%>: <%=chap.context%> </h3>
+    <%=chap.description_chap%>
+</p>
+<button class="btn btn-success" id="previousChapterBtn" style="float:left" data-id="<%=chap._id%>">Previous Chapter</button>
+<button class="btn btn-success"  style=" float:right " id="nextChapterBtn" data-id="<%=chap._id%>">Next Chapter</button>
+<br>
+<br>
+<%- contentFor('script') %>
+<script>
+    $('#nextChapterBtn').click(async function(){
+        const currentChapterId = $(this).data('id')
+        try {
+        location.href = `/client/chapter/${currentChapterId}/next`;
+    } catch (error) {
+        console.error('Error:', error);
+    }
+});
+    $('#previousChapterBtn').click(async function(){
+        const currentChapterId = $(this).data('id')
+        try {
+        location.href = `/client/chapter/${currentChapterId}/previous`;
+    } catch (error) {
+        console.error('Error:', error);
+    }
+});
+</script>
